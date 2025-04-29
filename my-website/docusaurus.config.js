@@ -16,9 +16,9 @@ const config = {
   favicon: 'img/image.png',
 
   // 设置你的 GitHub Pages URL
-  url: 'https://your-github-username.github.io',
+  url: 'https://Hei-LuQi.github.io',
   // 设置为仓库名称，如果是用户页面 (.github.io) 则设置为 '/'
-  baseUrl: '/your-repo-name/',
+  baseUrl: '/',
 
   // GitHub Pages 部署配置
   organizationName: 'your-github-username', // GitHub 用户名

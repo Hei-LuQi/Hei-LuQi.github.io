@@ -5,7 +5,7 @@
 branch: gh-pages
 
 # 部署目录
-path: /
+path: /my-website/build
 
 # 自定义域名（可选）
 # cname: your-domain.com
@@ -14,7 +14,7 @@ path: /
 https_only: true
 
 # 构建命令
-build_command: npm run build
+build_command: cd my-website && npm run build
 
 # 部署命令
-deploy_command: npm run deploy 
+deploy_command: cd my-website && npm run deploy 
