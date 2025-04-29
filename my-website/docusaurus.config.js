@@ -10,20 +10,21 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Your Name',
+  tagline: 'Hi! I\'m Your Name - welcome! ❤️ 🌻',
+  //favicon: 'img/favicon.ico',
+  favicon: 'img/image.png',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://your-blog-url.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'your-github-username', // Usually your GitHub org/user name.
+  projectName: 'your-blog-repo', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -36,32 +37,24 @@ const config = {
     locales: ['en'],
   },
 
+  // 添加 Font Awesome
+  stylesheets: [
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
+  ],
+
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        docs: false, // 禁用文档功能
         blog: {
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          editUrl: 'https://github.com/your-github-username/your-blog-repo/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -74,25 +67,36 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/docusaurus.png',
       navbar: {
-        title: 'My Site',
+        title: 'Your Name',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Your Logfo',
+          src: 'img/image.png',
+          className: 'navbar-avatar',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
+          {to: '/about', label: 'About', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/talks', label: 'Talks', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/your-github-username',
             label: 'GitHub',
             position: 'right',
+          },
+          {
+            href: 'https://twitter.com/your-twitter',
+            label: 'Twitter',
+            position: 'right',
+          },
+          {
+            type: 'search',
+            position: 'right',
+          },
+          {
+            type: 'html',
+            position: 'right',
+            value: '<button class="clean-btn navbar-theme-toggle">🌙</button>',
           },
         ],
       },
@@ -100,28 +104,57 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Technologies',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'TypeScript',
+                to: '/tags/typescript',
+              },
+              {
+                label: 'React',
+                to: '/tags/react',
+              },
+              {
+                label: 'Node.js',
+                to: '/tags/nodejs',
+              },
+              {
+                label: 'Azure',
+                to: '/tags/azure',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Notable Articles',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Latest Posts',
+                to: '/blog',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Popular Articles',
+                to: '/blog/tags/popular',
               },
               {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'Archive',
+                to: '/blog/archive',
+              },
+            ],
+          },
+          {
+            title: 'Connect',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/your-github-username',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/your-twitter',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://linkedin.com/in/your-linkedin',
               },
             ],
           },
@@ -129,21 +162,30 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'About Me',
+                to: '/about',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'My Talks',
+                to: '/talks',
+              },
+              {
+                label: 'RSS Feed',
+                to: '/blog/rss.xml',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Your Name. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
     }),
 };
