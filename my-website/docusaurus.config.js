@@ -104,36 +104,15 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Technologies',
+            title: 'Content',
             items: [
               {
-                label: 'TypeScript',
-                to: '/tags/typescript',
-              },
-              {
-                label: 'React',
-                to: '/tags/react',
-              },
-              {
-                label: 'Node.js',
-                to: '/tags/nodejs',
-              },
-              {
-                label: 'Azure',
-                to: '/tags/azure',
-              },
-            ],
-          },
-          {
-            title: 'Notable Articles',
-            items: [
-              {
-                label: 'Latest Posts',
+                label: 'Blog',
                 to: '/blog',
               },
               {
-                label: 'Popular Articles',
-                to: '/blog/tags/popular',
+                label: 'About',
+                to: '/about',
               },
               {
                 label: 'Archive',
@@ -162,16 +141,12 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'About Me',
-                to: '/about',
-              },
-              {
                 label: 'My Talks',
                 to: '/talks',
               },
               {
-                label: 'RSS Feed',
-                to: '/blog/rss.xml',
+                label: 'Blog Archive',
+                to: '/blog/archive',
               },
             ],
           },
