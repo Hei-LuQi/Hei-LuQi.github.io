@@ -15,16 +15,16 @@ const config = {
   //favicon: 'img/favicon.ico',
   favicon: 'img/image.png',
 
-  // Set the production url of your site here
-  url: 'https://your-blog-url.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // 设置你的 GitHub Pages URL
+  url: 'https://your-github-username.github.io',
+  // 设置为仓库名称，如果是用户页面 (.github.io) 则设置为 '/'
+  baseUrl: '/your-repo-name/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'your-github-username', // Usually your GitHub org/user name.
-  projectName: 'your-blog-repo', // Usually your repo name.
+  // GitHub Pages 部署配置
+  organizationName: 'your-github-username', // GitHub 用户名
+  projectName: 'your-repo-name', // 仓库名称
+  deploymentBranch: 'gh-pages', // 部署分支
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
