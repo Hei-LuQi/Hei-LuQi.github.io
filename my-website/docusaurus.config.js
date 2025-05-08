@@ -64,8 +64,8 @@ const config = {
   baseUrl: '/',
 
   // GitHub Pages 部署配置
-  organizationName: 'your-github-username', // GitHub 用户名
-  projectName: 'your-repo-name', // 仓库名称
+  organizationName: 'Hei-LuQi', // GitHub 用户名
+  projectName: 'Hei-LuQi.github.io', // 仓库名称
   deploymentBranch: 'gh-pages', // 部署分支
   trailingSlash: false,
 
