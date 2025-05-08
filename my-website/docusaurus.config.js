@@ -136,7 +136,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // 请将此替换为您的存储库。
           // 删除此选项将删除"编辑此页面"链接。
-          editUrl: 'https://github.com/your-github-username/your-blog-repo/tree/main/',
+          editUrl: 'https://github.com/Hei-LuQi/Hei-LuQi.github.io/tree/main/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
@@ -152,7 +152,7 @@ const config = {
             xslt: true,
             copyright: `Copyright © ${new Date().getFullYear()} Your Name.`,
           },
-          editUrl: 'https://github.com/your-github-username/your-blog-repo/tree/main/',
+          editUrl: 'https://github.com/Hei-LuQi/Hei-LuQi.github.io/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -252,7 +252,7 @@ const config = {
           {to: '/blog/archive', label: 'Blog', position: 'left'},
           {to: '/talks', label: 'Talks', position: 'left'},
           {
-            href: 'https://github.com/your-github-username',
+            href: 'https://github.com/Hei-LuQi',
             label: 'GitHub',
             position: 'right',
           },
@@ -326,7 +326,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/your-github-username',
+                href: 'https://github.com/Hei-LuQi',
               },
               {
                 label: 'Twitter',
