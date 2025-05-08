@@ -2,46 +2,51 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# 文档简介
 
-Let's discover **Docusaurus in less than 5 minutes**.
+欢迎来到我的文档中心！在这里，您可以找到关于各种技术主题的详细指南和教程。
 
-## Getting Started
+## 如何使用本文档
 
-Get started by **creating a new site**.
+本文档采用了清晰的分类和结构，方便您快速找到所需的信息：
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+1. 使用左侧的导航栏浏览不同的文档分类
+2. 使用顶部的搜索功能查找特定内容
+3. 每个文档页面底部都有"上一页"和"下一页"导航
 
-### What you'll need
+## 文档内容概览
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+本文档中心包含以下几个主要部分：
 
-## Generate a new site
+### 基础教程
 
-Generate a new Docusaurus site using the **classic template**.
+这部分内容适合初学者，涵盖了基本概念和入门知识。
 
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```mermaid
+flowchart LR
+    A[开始] --> B[基础概念]
+    B --> C[实践示例]
+    C --> D[进阶应用]
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+### 高级指南
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+针对有一定基础的用户，提供更深入的技术讲解和最佳实践。
 
-## Start your site
+### 参考资料
 
-Run the development server:
+API参考、配置选项和其他技术细节的完整参考资料。
 
-```bash
-cd my-website
-npm run start
-```
+## 如何贡献
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+我们欢迎您为这些文档做出贡献！如果您发现任何错误或有改进建议，请：
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+1. 点击页面底部的"编辑此页"链接
+2. 提交您的更改或建议
+3. 创建一个 Pull Request
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## 开始使用
+
+选择左侧导航中的任何一个主题开始您的学习之旅，或者继续阅读[基础教程](./tutorial-basics/create-a-document.md)以了解更多信息。
+
+感谢您访问我的文档中心！

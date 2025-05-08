@@ -49,3 +49,49 @@
 .navbar-theme-toggle:hover {
   background-color: var(--ifm-color-emphasis-100);
 }
+
+/* 博客侧边栏滚动条样式 - 增加多个选择器确保覆盖 */
+.sidebar_re4s,
+aside[class*="col col--3"] nav,
+.blog-wrapper aside nav,
+aside .thin-scrollbar,
+[class*="blogSidebar"],
+[aria-label="Blog recent posts navigation"] {
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+}
+
+/* 自定义博客列表样式 */
+.blog-list-page article {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.blog-list-page article h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-list-page article .markdown {
+  display: none; /* 隐藏文章摘要 */
+}
+
+.blog-list-page article footer {
+  margin-top: 0.5rem;
+}
+
+.blog-list-page article time {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* 隐藏标签列表，只显示日期 */
+.blog-list-page article .margin-right--sm {
+  margin-right: 0 !important;
+}
+
+.blog-list-page article .tag_node_modules-\@docusaurus-theme-classic-lib-theme-BlogPostItem-styles-module {
+  display: none;
+}
