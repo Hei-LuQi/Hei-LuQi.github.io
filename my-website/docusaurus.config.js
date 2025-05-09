@@ -141,6 +141,7 @@ const config = {
           showLastUpdateAuthor: true,
         },
         blog: {
+          remarkPlugins: [],
           showReadingTime: true,
           blogSidebarTitle: '最近文章',
           blogSidebarCount: 10,
@@ -155,6 +156,7 @@ const config = {
           editUrl: 'https://github.com/Hei-LuQi/Hei-LuQi.github.io/tree/main/',
         },
         theme: {
+
           customCss: './src/css/custom.css',
         },
       }),

@@ -1,0 +1,60 @@
+.playground {
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #f6f8fa;
+  margin: 1rem 0;
+}
+
+.editor {
+  height: calc(100% - 50px);
+  padding: 1rem;
+}
+
+.textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #ffffff;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 1rem;
+  resize: none;
+  border-radius: 4px;
+  color: #24292e;
+}
+
+.textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(3, 102, 214, 0.3);
+}
+
+.controls {
+  height: 50px;
+  padding: 0 1rem;
+  background-color: #ffffff;
+  border-top: 1px solid #e1e4e8;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.button {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #24292e;
+  background-color: #fafbfc;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+}
+
+.button:hover {
+  background-color: #f3f4f6;
+  border-color: rgba(27, 31, 35, 0.15);
+  transition-duration: 0.1s;
+} 

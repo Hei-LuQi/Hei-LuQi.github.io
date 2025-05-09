@@ -3,19 +3,21 @@
     "version": "1.0.0",
     "description": "My blog website",
     "scripts": {
-      "start": "cd my-website && npm start",
-      "build": "cd my-website && npm run build",
-      "install:website": "cd my-website && npm install",
-      "postinstall": "npm run install:website"
+        "start": "cd my-website && npm start",
+        "build": "cd my-website && npm run build",
+        "install:website": "cd my-website && npm install",
+        "postinstall": "npm run install:website"
     },
     "private": true,
     "devDependencies": {
-      "prettier": "^3.0.0",
-      "husky": "^9.0.0",
-      "lint-staged": "^15.0.0"
+        "husky": "^9.0.0",
+        "lint-staged": "^15.0.0",
+        "prettier": "^3.0.0"
     },
     "lint-staged": {
-      "**/*": "prettier --write --ignore-unknown"
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "dependencies": {
+        "recharts": "^2.15.3"
     }
-  }
-  
+}
