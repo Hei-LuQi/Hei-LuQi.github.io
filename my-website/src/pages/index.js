@@ -56,7 +56,7 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.5 }}
             >
               <motion.a 
-                href="https://github.com/your-username" 
+                href="https://github.com/Hei-LuQi" 
                 className={styles.socialLink}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -64,7 +64,7 @@ export default function Home() {
               >
                 <i className="fab fa-github"></i>
               </motion.a>
-              <motion.a 
+              {/* <motion.a 
                 href="https://twitter.com/your-username" 
                 className={styles.socialLink}
                 whileHover={{ scale: 1.1 }}
@@ -72,7 +72,7 @@ export default function Home() {
                 title="Twitter"
               >
                 <i className="fab fa-twitter"></i>
-              </motion.a>
+              </motion.a> */}
               <motion.a 
                 href="https://linkedin.com/in/your-username" 
                 className={styles.socialLink}
@@ -219,7 +219,7 @@ export default function Home() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <img src="/img/adventure/sleeping-bag.jpg" alt="Sleeping in cold weather" />
+                    <img src="/img/DSC00570.JPG" alt="Sleeping in cold weather" />
                     <div className={styles.photoCaption}>Embracing the cold weather adventure</div>
                   </motion.div>
                   <motion.div 

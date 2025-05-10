@@ -53,8 +53,8 @@ const siteStructuredData = {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Your Name',
-  tagline: 'Hi! I\'m Your Name - welcome! ❤️ 🌻',
+  title: '我太擅长表演',
+  tagline: 'Hi! I\'m L - Welcome! ❤️ 🌻',
   //favicon: 'img/favicon.ico',
   favicon: 'img/image.png',
 
@@ -235,7 +235,7 @@ const config = {
       // 替换为你的项目的社交卡片
       image: 'img/image.png',
       navbar: {
-        title: 'Your Name',
+        title: '我太擅长表演',
         logo: {
           alt: 'Your Logo',
           src: 'img/image.png',
@@ -258,20 +258,20 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-          {
-            href: 'https://twitter.com/your-twitter',
-            label: 'Twitter',
-            position: 'right',
-          },
+          // {
+          //   href: 'https://twitter.com/your-twitter',
+          //   label: 'Twitter',
+          //   position: 'right',
+          // },
           {
             type: 'search',
             position: 'right',
           },
-          {
-            type: 'html',
-            position: 'right',
-            value: '<button class="clean-btn navbar-theme-toggle">🌙</button>',
-          },
+          // {
+          //   type: 'html',
+          //   position: 'right',
+          //   value: '<button class="clean-btn navbar-theme-toggle">🌙</button>',
+          // },
         ],
       },
       footer: {

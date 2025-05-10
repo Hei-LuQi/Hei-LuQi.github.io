@@ -40,13 +40,13 @@
   content: 'function() {\n  return {\n    code: true\n  }\n}\n\nconst data = [];\n\nclass App {\n}\n\nif (debug) {\n}\n\n# Python\ndef main():\n    pass\n\n/* CSS */\n.style {\n}\n\n// React\nconst [state, setState] = useState();\n\n<!-- HTML -->\n<div class="container">\n</div>';
   position: absolute;
   font-family: 'Fira Code', monospace;
-  color: rgba(1, 236, 115, 0.15);
+  color: rgba(10, 216, 17, 0.15);
   white-space: pre;
   pointer-events: none;
   font-size: 18px;
   line-height: 1.8;
   transform: rotate(-10deg);
-  top: -20%;
+  top: 10%;
   left: -10%;
   width: 150%;
   height: 150%;
@@ -63,14 +63,13 @@
   font-size: 20px;
   line-height: 1.8;
   transform: rotate(10deg);
-  bottom: -20%;
+  top: 30%;
   right: -10%;
   width: 150%;
   height: 150%;
   text-align: left;
   letter-spacing: 1px;
 }
-
 .heroBackground {
   position: absolute;
   top: 0;
@@ -221,7 +220,7 @@
 .journeyText {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #fefefe;
+  color: var(--ifm-color-content);
   margin-bottom: 3rem;
   text-align: left;
   padding: 0 1rem;
