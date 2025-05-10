@@ -18,6 +18,8 @@
         "**/*": "prettier --write --ignore-unknown"
     },
     "dependencies": {
-        "recharts": "^2.15.3"
+        "recharts": "^2.15.3",
+        "rehype-katex": "^7.0.1",
+        "remark-math": "^6.0.0"
     }
 }

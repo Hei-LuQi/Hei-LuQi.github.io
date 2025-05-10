@@ -51,6 +51,43 @@ settings:
 class Designer:
     def __init__(self):
         self.style = "modern"
+```
+
+
+> A blockquote with *some* emphasis.
 
 
 
+<!-- function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+}
+
+const user = {
+  firstName: 'Harper',
+  lastName: 'Perez'
+};
+
+const element = (
+  <h1>
+    Hello, {formatName(user)}!
+  </h1>
+); -->
+
+### Details element example
+
+<details>
+  <summary>Toggle me!</summary>
+
+  This is the detailed content
+
+  ```js
+  console.log("Markdown features including the code block are available");
+  ```
+
+  You can use Markdown here including **bold** and _italic_ text, and [inline link](https://docusaurus.io)
+  <details>
+    <summary>Nested toggle! Some surprise inside...</summary>
+
+    😲😲😲😲😲
+  </details>
+</details>

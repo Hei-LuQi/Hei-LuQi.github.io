@@ -1,0 +1,66 @@
+---
+slug: virtual-thfreads-guide
+title: "fd的未来"
+authors: [luqi]
+tags: [docusaurus]
+---
+<main>
+  <article>
+    # Hello!
+    fdgdfgdfgf
+  </article>
+</main>
+
+<h2>Hello, Venus!</h2>
+<h2>Hello, Mars!</h2>
+<h1>Heading!</h1>
+
+<abbr title="HyperText Markup Language">HTML</abbr> is a lovely language.
+
+<section>
+  And here is *markdown* in **JSX**!
+</section>
+
+
+
+### Details element example
+
+<details>
+  <summary>Toggle me!</summary>
+
+  This is the detailed content
+
+  ```js
+  console.log("Markdown features including the code block are available");
+  ```
+
+  You can use Markdown here including **bold** and _italic_ text, and [inline link](https://docusaurus.io)
+  <details>
+    <summary>Nested toggle! Some surprise inside...</summary>
+
+    😲😲😲😲😲
+  </details>
+</details>
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+    }}>
+    {children}
+  </span>
+);
+
+<Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.
+
+I can write **Markdown** alongside my _JSX_!
+
+
+- a
+- list!
+
+And some <Highlight>custom markup</Highlight>...
+

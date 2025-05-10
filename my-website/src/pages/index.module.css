@@ -22,13 +22,53 @@
   justify-content: center;
 }
 
+
+
 .hero {
-  background-color: #4285f4;
-  padding: 6rem 0;
+
+  background: var(--bg-card);
+  padding: 3rem 0;
   text-align: center;
-  color: white;
+  color: var(--text-primary);
   position: relative;
   overflow: hidden;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero::before {
+  content: 'function() {\n  return {\n    code: true\n  }\n}\n\nconst data = [];\n\nclass App {\n}\n\nif (debug) {\n}\n\n# Python\ndef main():\n    pass\n\n/* CSS */\n.style {\n}\n\n// React\nconst [state, setState] = useState();\n\n<!-- HTML -->\n<div class="container">\n</div>';
+  position: absolute;
+  font-family: 'Fira Code', monospace;
+  color: rgba(1, 236, 115, 0.15);
+  white-space: pre;
+  pointer-events: none;
+  font-size: 18px;
+  line-height: 1.8;
+  transform: rotate(-10deg);
+  top: -20%;
+  left: -10%;
+  width: 150%;
+  height: 150%;
+  text-align: left;
+  letter-spacing: 1px;
+}
+.hero::after {
+  content: '<?php\n  echo "Hello";\n?>\n\n// TypeScript\ninterface Props {\n  name: string;\n}\n\n/* Java */\npublic class Main {\n}\n\n// Go\nfunc init() {\n}\n\n/* SQL */\nSELECT * FROM\n\n<!-- Vue -->\n<template>\n</template>';
+  position: absolute;
+  font-family: 'Fira Code', monospace;
+  color: rgba(88, 166, 255, 0.12);
+  white-space: pre;
+  pointer-events: none;
+  font-size: 20px;
+  line-height: 1.8;
+  transform: rotate(10deg);
+  bottom: -20%;
+  right: -10%;
+  width: 150%;
+  height: 150%;
+  text-align: left;
+  letter-spacing: 1px;
 }
 
 .heroBackground {
@@ -37,7 +77,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.1;
+  /* opacity: 0.1; */
+  background: 
+  radial-gradient(circle at 20% 20%, var(--accent-glow) 0%, transparent 70%),
+  radial-gradient(circle at 80% 80%, var(--accent-glow) 0%, transparent 70%);
+
 }
 
 .heroBackgroundInner {
@@ -47,6 +91,8 @@
   transform: translate(-50%, -50%) rotate(-30deg);
   width: 200%;
   height: 200%;
+  border-bottom: 1px solid var(--accent-blue);
+  /* backdrop-filter: blur(5px); */
 }
 
 .heroBackgroundBar {
@@ -164,6 +210,94 @@
   gap: 2rem;
   margin-top: 2rem;
 }
+
+
+.journey {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.journeyText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #fefefe;
+  margin-bottom: 3rem;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.journeyText p {
+  margin-bottom: 1.5rem;
+}
+
+.photoGrid {
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.photoRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.photo {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.photo img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo:hover img {
+  transform: scale(1.05);
+}
+
+.photoCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.photo:hover .photoCaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .photoRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .photo img {
+    height: 250px;
+  }
+
+  .journeyText {
+    font-size: 1rem;
+    padding: 0 1.5rem;
+  }
+}
+
 
 .card {
   background: white;
