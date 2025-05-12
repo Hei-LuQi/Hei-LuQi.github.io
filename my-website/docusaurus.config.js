@@ -251,7 +251,7 @@ const config = {
             label: '文档',
           },
           {to: '/about/', label: 'About', position: 'left'},
-          {to: '/blog/archive', label: 'Blog', position: 'left'},
+          {to: '/blog/archivec', label: 'Blog', position: 'left'},
           {to: '/talks', label: 'Talks', position: 'left'},
           {
             href: 'https://github.com/Hei-LuQi',
@@ -286,7 +286,7 @@ const config = {
               },
               {
                 label: '博客',
-                to: '/blog/archive',
+                to: '/blog/archivec',
               },
               {
                 label: '关于',
@@ -294,7 +294,7 @@ const config = {
               },
               {
                 label: '归档',
-                to: '/blog/archive',
+                to: '/blog/archivec',
               },
               {
                 label: '标签',

@@ -31,6 +31,14 @@ slorber:
     github: slorber
     newsletter: https://thisweekinreact.com
 
+author1:
+  name: 测试作者
+  title: 技术博客作者
+  url: https://github.com/test-author
+  image_url: /img/image.png
+  socials:
+    github: test-author
+
 default:
   name: Your Name
   title: 博客作者
