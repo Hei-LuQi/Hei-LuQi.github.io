@@ -97,3 +97,31 @@ aside .thin-scrollbar,
 .blog-list-page article .tag_node_modules-\@docusaurus-theme-classic-lib-theme-BlogPostItem-styles-module {
   display: none;
 }
+
+/* 标语样式优化 */
+.hero__subtitle {
+  font-family: "STKaiti", "楷体", "KaiTi", serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: var(--ifm-color-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* 添加下划线装饰 */
+.hero__subtitle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--ifm-color-primary), 
+    transparent
+  );
+}

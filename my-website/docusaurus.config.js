@@ -54,7 +54,7 @@ const siteStructuredData = {
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '我太擅长表演',
-  tagline: 'Hi! I\'m L - Welcome! ❤️ 🌻',
+  tagline: '「逝者如斯夫，不舍昼夜」',
   //favicon: 'img/favicon.ico',
   favicon: 'img/image.png',
 
@@ -250,7 +250,7 @@ const config = {
             position: 'left',
             label: '文档',
           },
-          {to: '/about/', label: 'About', position: 'left'},
+          {to: '/about1/', label: 'About', position: 'left'},
           {to: '/blog/archivec', label: 'Blog', position: 'left'},
           {to: '/talks', label: 'Talks', position: 'left'},
           {

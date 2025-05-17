@@ -1,0 +1,182 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Avatar, Highlight, Card } from '@site/src/components/AboutComponents';
+
+<div style={{ 
+  maxWidth: '800px', 
+  margin: '0 auto', 
+  backgroundColor: 'var(--ifm-background-color)',
+  minHeight: '100vh'
+}}>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    style={{
+      textAlign: 'center',
+      marginBottom: '2rem'
+    }}
+  >
+    <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}><Highlight>你好，我是卢琪</Highlight></h1>
+    <blockquote style={{ fontSize: '1.2rem', fontStyle: 'italic', margin: '0' }}>
+      "如果不在电脑面前，那么我就在美丽的风景中。"
+    </blockquote>
+  </motion.div>
+
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.2 }}
+  >
+    <p style={{ fontSize: '1.1rem', textAlign: 'center', marginBottom: '3rem' }}>
+      作为一名已有三年工作经验的开发者，我热爱编程，也热爱生活。代码和旅行是我生命中不可或缺的两部分。
+    </p>
+  </motion.div>
+
+  <h2>我的技术栈 💻</h2>
+
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+    <Card icon="🌐" title="前端开发">
+      <ul>
+        <li>JavaScript/TypeScript</li>
+        <li>React 生态系统</li>
+        <li>现代化构建工具</li>
+        <li>响应式设计</li>
+      </ul>
+    </Card>
+
+    <Card icon="⚙️" title="后端开发">
+      <ul>
+        <li>Node.js</li>
+        <li>数据库设计</li>
+        <li>RESTful API</li>
+        <li>微服务架构</li>
+      </ul>
+    </Card>
+
+    <Card icon="🚀" title="DevOps">
+      <ul>
+        <li>CI/CD 流程</li>
+        <li>Docker 容器化</li>
+        <li>云服务部署</li>
+        <li>性能优化</li>
+      </ul>
+    </Card>
+  </div>
+
+  <h2>工作历程 🎯</h2>
+
+  <div className="timeline">
+    <Card icon="💼" title="2021 - 至今">
+      <ul>
+        <li>参与多个大型项目开发</li>
+        <li>负责核心功能模块设计</li>
+        <li>技术栈升级与优化</li>
+        <li>团队协作与技术分享</li>
+      </ul>
+    </Card>
+  </div>
+
+  <h2>生活剪影 🌄</h2>
+
+  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+    <Card icon="🏃‍♂️" title="探险者">
+      <p>热爱户外运动，享受大自然的馈赠</p>
+    </Card>
+
+    <Card icon="📸" title="摄影师">
+      <p>用镜头记录生活中的美好瞬间</p>
+    </Card>
+
+    <Card icon="🌏" title="旅行者">
+      <p>在路上，发现世界的另一面</p>
+    </Card>
+
+    <Card icon="🎵" title="艺术爱好者">
+      <p>感受音乐与艺术的熏陶</p>
+    </Card>
+  </div>
+
+  <h2>我的信条 💭</h2>
+
+  <motion.blockquote
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.5, delay: 0.4 }}
+    style={{
+      borderLeft: '4px solid #4285f4',
+      padding: '1rem 2rem',
+      backgroundColor: 'var(--ifm-card-background-color)',
+      borderRadius: '0 8px 8px 0',
+      margin: '2rem 0'
+    }}
+  >
+    编程改变世界，旅行丰富人生。生活不应该只有代码的黑与白，还应该有大自然的绚丽多彩。
+  </motion.blockquote>
+
+  <h2>联系我 📫</h2>
+
+  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+    <motion.a
+      href="https://github.com/Hei-LuQi"
+      whileHover={{ scale: 1.1 }}
+      style={{
+        padding: '0.5rem 1rem',
+        borderRadius: '8px',
+        backgroundColor: '#24292e',
+        color: 'white',
+        textDecoration: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem'
+      }}
+    >
+      <i className="fab fa-github"></i> GitHub
+    </motion.a>
+
+    <motion.a
+      href="mailto:your.email@example.com"
+      whileHover={{ scale: 1.1 }}
+      style={{
+        padding: '0.5rem 1rem',
+        borderRadius: '8px',
+        backgroundColor: '#4285f4',
+        color: 'white',
+        textDecoration: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem'
+      }}
+    >
+      <i className="fas fa-envelope"></i> Email
+    </motion.a>
+
+    <motion.a
+      href="/blog"
+      whileHover={{ scale: 1.1 }}
+      style={{
+        padding: '0.5rem 1rem',
+        borderRadius: '8px',
+        backgroundColor: '#34a853',
+        color: 'white',
+        textDecoration: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem'
+      }}
+    >
+      <i className="fas fa-book"></i> Blog
+    </motion.a>
+  </div>
+
+  <hr />
+
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1, delay: 0.6 }}
+    style={{ textAlign: 'center', margin: '2rem 0', fontStyle: 'italic' }}
+  >
+    <p>"人生如逆旅，我亦是行人"</p>
+  </motion.div>
+</div>
