@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 /**
  * 创建一个使用requestAnimationFrame限流的钩子函数
@@ -15,6 +16,15 @@ export function useThrottledRAF(callback, deps = []) {
   }, [callback]);
   
   useEffect(() => {
+    // 确保只在浏览器环境执行
+    if (!ExecutionEnvironment.canUseDOM) return;
+    
+    // 确保requestAnimationFrame API可用
+    if (typeof requestAnimationFrame === 'undefined') {
+      console.warn('requestAnimationFrame API is not supported in this environment');
+      return;
+    }
+    
     const animate = time => {
       if (previousTimeRef.current !== 0) {
         const deltaTime = time - previousTimeRef.current;
@@ -25,7 +35,11 @@ export function useThrottledRAF(callback, deps = []) {
     };
     
     requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
+    return () => {
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current);
+      }
+    };
   }, deps);
 }
 

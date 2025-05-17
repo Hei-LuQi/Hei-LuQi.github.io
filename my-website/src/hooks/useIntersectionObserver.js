@@ -9,7 +9,14 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
  */
 export function useIntersectionObserver(callback, options = {}, targetIds = []) {
   useEffect(() => {
+    // 确保只在浏览器环境执行
     if (!ExecutionEnvironment.canUseDOM || !targetIds.length) return;
+    
+    // 确保IntersectionObserver API可用
+    if (typeof IntersectionObserver === 'undefined') {
+      console.warn('IntersectionObserver API is not supported in this browser');
+      return;
+    }
     
     const defaultOptions = { rootMargin: '200px', threshold: 0 };
     const observerOptions = { ...defaultOptions, ...options };

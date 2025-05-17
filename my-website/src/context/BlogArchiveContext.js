@@ -10,7 +10,33 @@ import useIntersectionObserver from '../hooks/useIntersectionObserver';
 const POSTS_PER_PAGE = 5;
 
 // 创建上下文
-const BlogArchiveContext = createContext();
+const BlogArchiveContext = createContext({
+  // 提供默认值，避免SSR时出现undefined
+  activeYear: null,
+  isLoading: true,
+  isContentVisible: false,
+  yearStates: {},
+  searchQuery: '',
+  debouncedSearchQuery: '',
+  showPerformance: false,
+  visibleYears: new Set(),
+  allPosts: [],
+  filteredPosts: [],
+  postsByYear: {},
+  years: [],
+  setActiveYear: () => {},
+  setSearchQuery: () => {},
+  setVisibleYears: () => {},
+  setShowPerformance: () => {},
+  updateYearState: () => {},
+  scrollToYear: () => {},
+  toggleYearExpansion: () => {},
+  expandAllYears: () => {},
+  collapseAllYears: () => {},
+  changePage: () => {},
+  getPaginatedPosts: () => [],
+  POSTS_PER_PAGE: 5
+});
 
 // 创建Provider组件
 export function BlogArchiveProvider({ children }) {
@@ -31,13 +57,16 @@ export function BlogArchiveProvider({ children }) {
   const scrollPosRef = useRef(0);
   const performanceReportRef = useRef(null);
   
+  // 判断是否在浏览器环境
+  const isBrowser = ExecutionEnvironment.canUseDOM;
+  
   // 加载博客文章数据
   const allPosts = useMemo(() => {
-    if (ExecutionEnvironment.canUseDOM) {
+    if (isBrowser) {
       return blogService.getAllPosts(PerformanceMonitor);
     }
     return [];
-  }, []);
+  }, [isBrowser]);
   
   // 搜索过滤
   const filteredPosts = useMemo(() => {
@@ -87,35 +116,36 @@ export function BlogArchiveProvider({ children }) {
     return years.map(year => `year-${year}`);
   }, [years]);
   
-  // 使用自定义hook观察年份区块
-  useIntersectionObserver(handleYearVisible, { rootMargin: '200px' }, yearIds);
-  
-  // 使用滚动事件跟踪当前激活的年份
-  useThrottledRAF(() => {
-    if (!ExecutionEnvironment.canUseDOM) return;
+  // 使用客户端专用的hook - 仅在浏览器环境运行
+  if (isBrowser) {
+    // 使用自定义hook观察年份区块
+    useIntersectionObserver(handleYearVisible, { rootMargin: '200px' }, yearIds);
     
-    // 滚动位置变化检测
-    const currentScrollPos = window.scrollY;
-    if (Math.abs(currentScrollPos - scrollPosRef.current) < 50) return;
-    
-    scrollPosRef.current = currentScrollPos;
-    
-    // 检测哪个年份区域在可视区域内
-    years.forEach(year => {
-      const element = document.getElementById(`year-${year}`);
-      if (!element) return;
+    // 使用滚动事件跟踪当前激活的年份
+    useThrottledRAF(() => {
+      // 滚动位置变化检测
+      const currentScrollPos = window.scrollY;
+      if (Math.abs(currentScrollPos - scrollPosRef.current) < 50) return;
       
-      const rect = element.getBoundingClientRect();
-      // 如果元素在视口中或刚好在视口上方
-      if (rect.top <= 100 && rect.bottom >= 0) {
-        setActiveYear(year);
-      }
-    });
-  }, [years]);
+      scrollPosRef.current = currentScrollPos;
+      
+      // 检测哪个年份区域在可视区域内
+      years.forEach(year => {
+        const element = document.getElementById(`year-${year}`);
+        if (!element) return;
+        
+        const rect = element.getBoundingClientRect();
+        // 如果元素在视口中或刚好在视口上方
+        if (rect.top <= 100 && rect.bottom >= 0) {
+          setActiveYear(year);
+        }
+      });
+    }, [years]);
+  }
   
   // 初始化或更新年份状态
   useEffect(() => {
-    if (years.length > 0 && ExecutionEnvironment.canUseDOM) {
+    if (years.length > 0 && isBrowser) {
       setYearStates(prevStates => {
         const newStates = { ...prevStates };
         
@@ -149,7 +179,7 @@ export function BlogArchiveProvider({ children }) {
         return newStates;
       });
     }
-  }, [years]);
+  }, [years, isBrowser]);
 
   // 优化的状态更新函数
   const updateYearState = useCallback((year, updates) => {
@@ -167,7 +197,7 @@ export function BlogArchiveProvider({ children }) {
     setActiveYear(year);
     updateYearState(year, { isExpanded: true });
     
-    if (ExecutionEnvironment.canUseDOM) {
+    if (isBrowser) {
       requestAnimationFrame(() => {
         const element = document.getElementById(`year-${year}`);
         if (element) {
@@ -175,7 +205,7 @@ export function BlogArchiveProvider({ children }) {
         }
       });
     }
-  }, [updateYearState]);
+  }, [updateYearState, isBrowser]);
 
   // 切换年份展开状态
   const toggleYearExpansion = useCallback((year) => {
@@ -221,10 +251,12 @@ export function BlogArchiveProvider({ children }) {
 
     updateYearState(year, { isTransitioning: true, currentPage: pageNumber });
     
-    setTimeout(() => {
-      updateYearState(year, { isTransitioning: false });
-    }, 300);
-  }, [yearStates, updateYearState]);
+    if (isBrowser) {
+      setTimeout(() => {
+        updateYearState(year, { isTransitioning: false });
+      }, 300);
+    }
+  }, [yearStates, updateYearState, isBrowser]);
 
   // 获取某年的分页文章
   const getPaginatedPosts = useCallback((year) => {
@@ -239,6 +271,8 @@ export function BlogArchiveProvider({ children }) {
 
   // 跟踪哪些年份是展开的
   useEffect(() => {
+    if (!isBrowser) return;
+    
     const currentVisibleYears = new Set();
     
     Object.entries(yearStates).forEach(([year, state]) => {
@@ -248,30 +282,30 @@ export function BlogArchiveProvider({ children }) {
     });
     
     prevVisibleYears.current = currentVisibleYears;
-  }, [yearStates]);
+  }, [yearStates, isBrowser]);
   
   // 延迟加载数据
   useEffect(() => {
+    if (!isBrowser) return;
+    
     let isMounted = true;
     
     async function loadPosts() {
-      if (ExecutionEnvironment.canUseDOM) {
-        try {
-          await new Promise(resolve => setTimeout(resolve, 0));
-          if (!isMounted) return;
-          
-          setIsLoading(false);
-          setTimeout(() => {
-            if (isMounted) {
-              setIsContentVisible(true);
-            }
-          }, 50);
-        } catch (error) {
-          console.error('Error loading posts:', error);
+      try {
+        await new Promise(resolve => setTimeout(resolve, 0));
+        if (!isMounted) return;
+        
+        setIsLoading(false);
+        setTimeout(() => {
           if (isMounted) {
-            setIsLoading(false);
             setIsContentVisible(true);
           }
+        }, 50);
+      } catch (error) {
+        console.error('Error loading posts:', error);
+        if (isMounted) {
+          setIsLoading(false);
+          setIsContentVisible(true);
         }
       }
     }
@@ -281,24 +315,22 @@ export function BlogArchiveProvider({ children }) {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [isBrowser]);
   
   // 重置性能监控
   useEffect(() => {
-    if (ExecutionEnvironment.canUseDOM) {
-      PerformanceMonitor.reset();
-    }
+    if (!isBrowser) return;
+    
+    PerformanceMonitor.reset();
     
     return () => {
-      if (ExecutionEnvironment.canUseDOM) {
-        performanceReportRef.current = PerformanceMonitor.getReport();
-      }
+      performanceReportRef.current = PerformanceMonitor.getReport();
     };
-  }, []);
+  }, [isBrowser]);
   
   // 性能监控快捷键
   useEffect(() => {
-    if (!ExecutionEnvironment.canUseDOM || process.env.NODE_ENV !== 'development') return;
+    if (!isBrowser || process.env.NODE_ENV !== 'development') return;
     
     const handleKeyDown = (e) => {
       if (e.altKey && e.key === 'p') {
@@ -308,7 +340,7 @@ export function BlogArchiveProvider({ children }) {
     
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isBrowser]);
   
   // 状态上下文值
   const contextValue = {
