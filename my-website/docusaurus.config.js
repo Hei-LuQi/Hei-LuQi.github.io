@@ -140,6 +140,8 @@ const config = {
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
+
+
         blog: {
           remarkPlugins: [],
           showReadingTime: true,
@@ -224,13 +226,7 @@ const config = {
       },
 
       // 添加搜索功能配置（如果你想添加 Algolia 搜索，可以取消注释这部分）
-      /*
-      algolia: {
-        appId: 'YOUR_APP_ID',
-        apiKey: 'YOUR_API_KEY',
-        indexName: 'YOUR_INDEX_NAME',
-      },
-      */
+
 
       // 替换为你的项目的社交卡片
       image: 'img/image.png',
@@ -346,6 +342,13 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Your Name. Built with Docusaurus.`,
+      },
+
+      algolia: {
+        appId: '2O9OZO4S90',
+        apiKey: 'e269b7ce738b137decd6a9661e4502be',
+        indexName: 'mynameisluqi',
+        contextualSearch: true,
       },
       prism: {
         theme: prismThemes.github,
