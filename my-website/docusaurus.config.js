@@ -117,6 +117,14 @@ const config = {
         href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap',
       },
     },
+    // 添加 Algolia 站点验证标签
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'algolia-site-verification',
+        content: '6E1DA78F40CF99EF',
+      },
+    },
     // 添加结构化数据
     {
       tagName: 'script',
