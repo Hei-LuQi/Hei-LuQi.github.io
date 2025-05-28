@@ -353,8 +353,8 @@ const config = {
       },
 
       algolia: {
-        appId: '2O9OZO4S90',
-        apiKey: 'e269b7ce738b137decd6a9661e4502be',
+        appId: '6NG5B7SRVE',
+        apiKey: '1c96ce2c0cbe080c5186df3a60faa18d',
         indexName: 'mynameisluqi',
         contextualSearch: true,
       },
